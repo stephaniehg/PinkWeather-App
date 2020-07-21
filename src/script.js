@@ -54,7 +54,10 @@ function displayWeather(response) {
   windSpeedElement.innerHTML = windSpeedValue;
   humidityElement.innerHTML = humidityValue;
 
-  //fehlt noch Sunshine h (evtl. durch precipitation ersetzen)
+  let cloudinessElement = document.querySelector("#cloudiness");
+  let cloudinessValue = response.data.clouds.all;
+  cloudinessElement.innerHTML = cloudinessValue;
+
   //fehlt noch Sunrise/Sunset
 }
 
@@ -88,7 +91,10 @@ function displayLocationWeather(response) {
   let locationNameText = response.data.name;
   locationNameElement.innerHTML = locationNameText;
 
-  //fehlt noch Sunshine h (evtl. durch precipitation ersetzen)
+  let cloudinessElement = document.querySelector("#cloudiness");
+  let cloudinessValue = response.data.clouds.all;
+  cloudinessElement.innerHTML = cloudinessValue;
+
   //fehlt noch Sunrise/Sunset
 }
 
