@@ -20,6 +20,7 @@ a:hover {
   margin-bottom: 20px;
   display: block;
   padding: 0 15px;
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
 .heading {
@@ -36,6 +37,7 @@ a:hover {
   background: #fff0f9;
   border-color: #d6206f;
   border-width: 2px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .search_button,
@@ -48,11 +50,13 @@ a:hover {
   border-radius: 30px;
   background-color: #d6206f;
   transition: all 2ms ease-in-out;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .search_button:hover,
 .location_button:hover {
   background-color: #fff0f9;
+  border-color: #d6206f;
 }
 
 .day_date_time {
@@ -67,6 +71,7 @@ a:hover {
   border-radius: 8px;
   font-family: "Lobster", cursive;
   background-color: #fdd6ee;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .currentCity {
@@ -83,6 +88,7 @@ a:hover {
   margin-bottom: 20px;
   font-family: "Lobster", cursive;
   background-color: #fdd6ee;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .updated {
@@ -112,11 +118,13 @@ a:hover {
 .weatherText,
 .weatherMinMax {
   font-size: 18px;
+  font-weight: 500;
 }
 
 .card {
   background: #fff0f9;
   border-color: #d6206f;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .card-text {
