@@ -1,4 +1,5 @@
-function callApi() {
+function callApi(event) {
+  event.preventDefault();
   let apiKey = "0077954dacc8f6e7c507909431913e99";
   let unit = "metric";
   let cityInput = document.querySelector("#city-input");
@@ -24,6 +25,10 @@ function activateNavigator(event) {
 }
 
 function displayWeather(response) {
+  let currentCityElement = document.querySelector("#current-city");
+  let currentCityName = response.data.name;
+  currentCityElement.innerHTML = currentCityName;
+
   let currentTemperature = Math.round(response.data.main.temp);
   let tempNow = document.querySelector("#temp-now");
   tempNow.innerHTML = currentTemperature;
@@ -87,16 +92,8 @@ function displayLocationWeather(response) {
   //fehlt noch Sunrise/Sunset
 }
 
-function displayCurrentCity(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#city-input");
-  let currentCity = document.querySelector("#current-city");
-  currentCity.innerHTML = `${cityInput.value}`;
-  callApi();
-}
-
 let citySubmit = document.querySelector("#search-form");
-citySubmit.addEventListener("submit", displayCurrentCity);
+citySubmit.addEventListener("submit", callApi);
 
 let locationSubmit = document.querySelector("#location-button");
 locationSubmit.addEventListener("click", activateNavigator);
