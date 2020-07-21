@@ -1,0 +1,132 @@
+body {
+  background: #fff0f9;
+}
+
+#alternative-scale {
+  color: #212529;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.container {
+  background: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+  max-width: 600px;
+  border: 2px solid #000000;
+  border-radius: 15px;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: block;
+}
+
+.heading {
+  text-align: center;
+  font-size: 34px;
+  padding: 20px 0;
+  margin: 20px 0;
+  font-family: "Lobster", cursive;
+  color: #d6206f;
+}
+
+.search_bar {
+  font-family: "Lobster", cursive;
+  background: #fff0f9;
+  border-color: #d6206f;
+  border-width: 2px;
+}
+
+.search_button,
+.location_button {
+  font-size: 20px;
+  padding: 2px 12px;
+  border-width: 2px;
+  border-color: #fff0f9;
+  margin: 0 10px;
+  border-radius: 30px;
+  background-color: #d6206f;
+  transition: all 2ms ease-in-out;
+}
+
+.search_button:hover,
+.location_button:hover {
+  background-color: #fff0f9;
+}
+
+.day_date_time {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 15px 0;
+  border: 2px solid #d6206f;
+  margin: 0 auto;
+  margin-top: 40px;
+  max-width: 80%;
+  border-radius: 8px;
+  font-family: "Lobster", cursive;
+  background-color: #fdd6ee;
+}
+
+.currentCity {
+  font-size: 50px;
+  font-weight: 700;
+  padding: 40px;
+  border: 2px solid #d6206f;
+  border-radius: 8px;
+  max-width: 80%;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-family: "Lobster", cursive;
+  background-color: #fdd6ee;
+}
+
+.updated {
+  text-align: center;
+  font-size: 15px;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+.currentTemp {
+  font-size: 55px;
+  margin: 50px 0 20px 30px;
+}
+
+.details {
+  list-style: none;
+  padding: 0;
+  font-size: 12px;
+  margin: 0 auto;
+}
+
+.change_scale {
+  font-style: italic;
+  font-size: 20px;
+}
+
+.weatherText,
+.weatherMinMax {
+  font-size: 18px;
+}
+
+.card {
+  background: #fff0f9;
+  border-color: #d6206f;
+}
+
+.card-text {
+  font-size: 12px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.weatherIcon {
+  padding: 0;
+  text-align: center;
+  font-size: 45px;
+  color: #d6206f;
+}
