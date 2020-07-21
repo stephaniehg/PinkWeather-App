@@ -23,154 +23,169 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="heading">Welcome to the PinkWeather App!</h1>
+      <div class="app_box">
+        <h1 class="heading">Welcome to the PinkWeather App!</h1>
 
-      <div class="search">
-        <form id="search-form">
-          <div class="form-row justify-content-center">
-            <input
-              type="text"
-              class="form-control form-control-lg search_bar w-50 mx-2"
-              id="city-input"
-              placeholder="Search your city..."
-              autofocus
-            />
-            <button class="search_button" id="search-button" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-            <button class="location_button" id="location-button" type="button">
-              <i class="fas fa-search-location"></i>
-            </button>
+        <div class="search">
+          <form id="search-form">
+            <div class="form-row justify-content-center">
+              <input
+                type="text"
+                class="form-control form-control-lg search_bar w-50 mx-2"
+                id="city-input"
+                placeholder="Search your city..."
+                autofocus
+              />
+              <button class="search_button" id="search-button" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+              <button
+                class="location_button"
+                id="location-button"
+                type="button"
+              >
+                <i class="fas fa-search-location"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <h2>
+          <div class="row day_date_time justify-content-around">
+            <div class="col-sm-3" id="current-day"></div>
+            <div class="col-sm-3" id="current-date"></div>
+            <div class="col-sm-3" id="current-time"></div>
           </div>
-        </form>
+        </h2>
+
+        <h3 class="currentCity" id="current-city">
+          Enter a city
+        </h3>
+
+        <p class="updated">Last updated <span id="update-time">00:00</span></p>
+
+        <div class="row no-gutters">
+          <div class="col-7 pr-0 mx-0 pl-2 text-center">
+            <span class="currentTemp">
+              <i class="fas fa-cloud iconNow"></i> <span id="temp-now"> -</span
+              ><span class="degree_scale" id="current-scale">°C</span>
+            </span>
+
+            <div class="row">
+              <div
+                class="col offset-1 weatherText py-4"
+                id="weather-description"
+              >
+                -
+              </div>
+              <div class="col weatherMinMax py-4">
+                <span id="temp-max">-</span>°C/<span id="temp-min">-</span>°C
+              </div>
+            </div>
+          </div>
+
+          <div class="col-1 px-0 mx-0">
+            <a href="#" class="change_scale" id="alternative-scale">°F</a>
+          </div>
+
+          <div class="col-2 offset-1">
+            <ul class="details">
+              <li>
+                Real feel <strong><span id="real-feel">-</span>°C</strong>
+              </li>
+              <li>
+                Sunshine <strong><span id="sunshine-hours">-</span> h</strong>
+              </li>
+              <li>
+                Wind <strong><span id="wind-speed">-</span> km/h</strong>
+              </li>
+              <li>
+                Humidity <strong><span id="humidity">-</span> %</strong>
+              </li>
+              <br />
+              <li>
+                Sunrise <strong><span id="sunrise-time"></span></strong>
+              </li>
+              <li>
+                Sunset <strong><span id="sunset-time"></span></strong>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row no-gutters mx-0 mt-4 mb-3">
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-body px-1 py-2">
+                <p class="card-text">
+                  Day <br />
+                  time
+                </p>
+                <p class="weatherIcon"><i class="fas fa-sun sun"></i></p>
+                <p class="card-text">Weather <br />max/min°C</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm mx-1">
+            <div class="card">
+              <div class="card-body px-1 py-2">
+                <p class="card-text">
+                  Day <br />
+                  time
+                </p>
+                <p class="weatherIcon">
+                  <i class="fas fa-cloud-sun-rain rainSun"></i>
+                </p>
+                <p class="card-text">Weather <br />max/min°C</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-body px-1 py-2">
+                <p class="card-text">
+                  Day <br />
+                  time
+                </p>
+                <p class="weatherIcon">
+                  <i class="fas fa-cloud-showers-heavy rain"></i>
+                </p>
+                <p class="card-text">Weather <br />max/min°C</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm mx-1">
+            <div class="card">
+              <div class="card-body px-1 py-2">
+                <p class="card-text">
+                  Day <br />
+                  time
+                </p>
+                <p class="weatherIcon"><i class="far fa-snowflake snow"></i></p>
+                <p class="card-text">Weather <br />max/min°C</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-body px-1 py-2">
+                <p class="card-text">
+                  Day <br />
+                  time
+                </p>
+                <p class="weatherIcon"><i class="fas fa-bolt storm"></i></p>
+                <p class="card-text">Weather <br />max/min°C</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <h2>
-        <div class="row day_date_time justify-content-around">
-          <div class="col-sm-3" id="current-day"></div>
-          <div class="col-sm-3" id="current-date"></div>
-          <div class="col-sm-3" id="current-time"></div>
-        </div>
-      </h2>
-
-      <h3 class="currentCity" id="current-city">
-        Enter a city
-      </h3>
-
-      <p class="updated">Last updated <span id="update-time">00:00</span></p>
-
-      <div class="row no-gutters">
-        <div class="col-7 pr-0 mx-0 pl-2 text-center">
-          <span class="currentTemp">
-            <i class="fas fa-cloud iconNow"></i> <span id="temp-now"> -</span
-            ><span class="degree_scale" id="current-scale">°C</span>
-          </span>
-
-          <div class="row">
-            <div class="col offset-1 weatherText py-4" id="weather-description">
-              -
-            </div>
-            <div class="col weatherMinMax py-4">
-              <span id="temp-max">-</span>°C/<span id="temp-min">-</span>°C
-            </div>
-          </div>
-        </div>
-
-        <div class="col-1 px-0 mx-0">
-          <a href="#" class="change_scale" id="alternative-scale">°F</a>
-        </div>
-
-        <div class="col-2 offset-1">
-          <ul class="details">
-            <li>
-              Real feel <strong><span id="real-feel">-</span>°C</strong>
-            </li>
-            <li>
-              Sunshine <strong><span id="sunshine-hours">-</span> h</strong>
-            </li>
-            <li>
-              Wind <strong><span id="wind-speed">-</span> km/h</strong>
-            </li>
-            <li>
-              Humidity <strong><span id="humidity">-</span> %</strong>
-            </li>
-            <br />
-            <li>
-              Sunrise <strong><span id="sunrise-time"></span></strong>
-            </li>
-            <li>
-              Sunset <strong><span id="sunset-time"></span></strong>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="row no-gutters mx-0 mt-4 mb-3">
-        <div class="col-sm">
-          <div class="card">
-            <div class="card-body px-1 py-2">
-              <p class="card-text">
-                Day <br />
-                time
-              </p>
-              <p class="weatherIcon"><i class="fas fa-sun sun"></i></p>
-              <p class="card-text">Weather <br />max/min°C</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm mx-1">
-          <div class="card">
-            <div class="card-body px-1 py-2">
-              <p class="card-text">
-                Day <br />
-                time
-              </p>
-              <p class="weatherIcon">
-                <i class="fas fa-cloud-sun-rain rainSun"></i>
-              </p>
-              <p class="card-text">Weather <br />max/min°C</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div class="card">
-            <div class="card-body px-1 py-2">
-              <p class="card-text">
-                Day <br />
-                time
-              </p>
-              <p class="weatherIcon">
-                <i class="fas fa-cloud-showers-heavy rain"></i>
-              </p>
-              <p class="card-text">Weather <br />max/min°C</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm mx-1">
-          <div class="card">
-            <div class="card-body px-1 py-2">
-              <p class="card-text">
-                Day <br />
-                time
-              </p>
-              <p class="weatherIcon"><i class="far fa-snowflake snow"></i></p>
-              <p class="card-text">Weather <br />max/min°C</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div class="card">
-            <div class="card-body px-1 py-2">
-              <p class="card-text">
-                Day <br />
-                time
-              </p>
-              <p class="weatherIcon"><i class="fas fa-bolt storm"></i></p>
-              <p class="card-text">Weather <br />max/min°C</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <p class="footer">
+        <a href="https://github.com/stephaniehg/PinkWeather-App" target="_blank"
+          >Open-source code</a
+        >
+        by StephanieHg
+      </p>
     </div>
     <script src="src/script.js"></script>
   </body>

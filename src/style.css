@@ -10,15 +10,16 @@ a:hover {
   text-decoration: none;
 }
 
-.container {
+.app_box {
   background: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
   max-width: 600px;
   border: 2px solid #000000;
   border-radius: 15px;
   margin: 0 auto;
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   display: block;
+  padding: 0 15px;
 }
 
 .heading {
@@ -129,4 +130,9 @@ a:hover {
   text-align: center;
   font-size: 45px;
   color: #d6206f;
+}
+
+.footer {
+  text-align: center;
+  margin-bottom: 40px;
 }
