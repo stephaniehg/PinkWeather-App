@@ -58,7 +58,25 @@ function displayWeather(response) {
   let cloudinessValue = response.data.clouds.all;
   cloudinessElement.innerHTML = cloudinessValue;
 
-  //fehlt noch Sunrise/Sunset
+  let sunriseDate = new Date(response.data.sys.sunrise * 1000);
+  let sunriseHour = sunriseDate.getHours();
+  let sunriseMinutes = sunriseDate.getMinutes();
+  let sunriseElement = document.querySelector("#sunrise-time");
+  if (sunriseMinutes < 10) {
+    sunriseElement.innerHTML = `${sunriseHour}:0${sunriseMinutes}`;
+  } else {
+    sunriseElement.innerHTML = `${sunriseHour}:${sunriseMinutes}`;
+  }
+
+  let sunsetDate = new Date(response.data.sys.sunset * 1000);
+  let sunsetHour = sunsetDate.getHours();
+  let sunsetMinutes = sunsetDate.getMinutes();
+  let sunsetElement = document.querySelector("#sunset-time");
+  if (sunsetMinutes < 10) {
+    sunsetElement.innerHTML = `${sunsetHour}:0${sunsetMinutes}`;
+  } else {
+    sunsetElement.innerHTML = `${sunsetHour}:${sunsetMinutes}`;
+  }
 }
 
 function displayLocationWeather(response) {
@@ -95,7 +113,25 @@ function displayLocationWeather(response) {
   let cloudinessValue = response.data.clouds.all;
   cloudinessElement.innerHTML = cloudinessValue;
 
-  //fehlt noch Sunrise/Sunset
+  let sunriseDate = new Date(response.data.sys.sunrise * 1000);
+  let sunriseHour = sunriseDate.getHours();
+  let sunriseMinutes = sunriseDate.getMinutes();
+  let sunriseElement = document.querySelector("#sunrise-time");
+  if (sunriseMinutes < 10) {
+    sunriseElement.innerHTML = `${sunriseHour}:0${sunriseMinutes}`;
+  } else {
+    sunriseElement.innerHTML = `${sunriseHour}:${sunriseMinutes}`;
+  }
+
+  let sunsetDate = new Date(response.data.sys.sunset * 1000);
+  let sunsetHour = sunsetDate.getHours();
+  let sunsetMinutes = sunsetDate.getMinutes();
+  let sunsetElement = document.querySelector("#sunset-time");
+  if (sunsetMinutes < 10) {
+    sunsetElement.innerHTML = `${sunsetHour}:0${sunsetMinutes}`;
+  } else {
+    sunsetElement.innerHTML = `${sunsetHour}:${sunsetMinutes}`;
+  }
 }
 
 let citySubmit = document.querySelector("#search-form");
