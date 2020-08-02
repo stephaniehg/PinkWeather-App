@@ -15,7 +15,6 @@ function callLocationApi(position) {
   let unit = "metric";
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayLocationWeather);
 }
 
