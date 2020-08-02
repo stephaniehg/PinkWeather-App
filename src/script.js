@@ -76,6 +76,9 @@ function displayWeather(response) {
   } else {
     sunsetElement.innerHTML = `${sunsetHour}:${sunsetMinutes}`;
   }
+
+  dateToday();
+  timeNow();
 }
 
 function displayLocationWeather(response) {
@@ -131,6 +134,9 @@ function displayLocationWeather(response) {
   } else {
     sunsetElement.innerHTML = `${sunsetHour}:${sunsetMinutes}`;
   }
+
+  dateToday();
+  timeNow();
 }
 
 let citySubmit = document.querySelector("#search-form");
