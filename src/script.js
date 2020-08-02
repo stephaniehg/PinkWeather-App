@@ -142,7 +142,11 @@ function dateToday() {
   day.innerHTML = `${currentDay}`;
 
   let fullDate = document.querySelector("#current-date");
-  fullDate.innerHTML = `${currentDate}.${currentMonth}.${currentYear}`;
+  if (currentDate < 10) {
+    fullDate.innerHTML = `0${currentDate}.${currentMonth}.${currentYear}`;
+  } else {
+    fullDate.innerHTML = `${currentDate}.${currentMonth}.${currentYear}`;
+  }
 }
 dateToday();
 
