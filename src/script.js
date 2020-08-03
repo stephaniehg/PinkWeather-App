@@ -62,20 +62,24 @@ function displayWeather(response) {
   let sunriseMinutes = sunriseDate.getMinutes();
   let sunriseElement = document.querySelector("#sunrise-time");
   if (sunriseMinutes < 10) {
-    sunriseElement.innerHTML = `${sunriseHour}:0${sunriseMinutes}`;
-  } else {
-    sunriseElement.innerHTML = `${sunriseHour}:${sunriseMinutes}`;
+    sunriseMinutes = `0${sunriseMinutes}`;
   }
+  if (sunriseHour < 10) {
+    sunriseHour = `0${sunriseHour}`;
+  }
+  sunriseElement.innerHTML = `${sunriseHour}:${sunriseMinutes}`;
 
   let sunsetDate = new Date(response.data.sys.sunset * 1000);
   let sunsetHour = sunsetDate.getHours();
   let sunsetMinutes = sunsetDate.getMinutes();
   let sunsetElement = document.querySelector("#sunset-time");
   if (sunsetMinutes < 10) {
-    sunsetElement.innerHTML = `${sunsetHour}:0${sunsetMinutes}`;
-  } else {
-    sunsetElement.innerHTML = `${sunsetHour}:${sunsetMinutes}`;
+    sunsetMinutes = `0${sunsetMinutes}`;
   }
+  if (sunsetHour < 10) {
+    sunsetHour = `0${sunsetHour}`;
+  }
+  sunsetElement.innerHTML = `${sunsetHour}:${sunsetMinutes}`;
 
   dateToday();
   timeNow();
@@ -123,20 +127,24 @@ function displayLocationWeather(response) {
   let sunriseMinutes = sunriseDate.getMinutes();
   let sunriseElement = document.querySelector("#sunrise-time");
   if (sunriseMinutes < 10) {
-    sunriseElement.innerHTML = `${sunriseHour}:0${sunriseMinutes}`;
-  } else {
-    sunriseElement.innerHTML = `${sunriseHour}:${sunriseMinutes}`;
+    sunriseMinutes = `0${sunriseMinutes}`;
   }
+  if (sunriseHour < 10) {
+    sunriseHour = `0${sunriseHour}`;
+  }
+  sunriseElement.innerHTML = `${sunriseHour}:${sunriseMinutes}`;
 
   let sunsetDate = new Date(response.data.sys.sunset * 1000);
   let sunsetHour = sunsetDate.getHours();
   let sunsetMinutes = sunsetDate.getMinutes();
   let sunsetElement = document.querySelector("#sunset-time");
   if (sunsetMinutes < 10) {
-    sunsetElement.innerHTML = `${sunsetHour}:0${sunsetMinutes}`;
-  } else {
-    sunsetElement.innerHTML = `${sunsetHour}:${sunsetMinutes}`;
+    sunsetMinutes = `0${sunsetMinutes}`;
   }
+  if (sunsetHour < 10) {
+    sunsetHour = `0${sunsetHour}`;
+  }
+  sunsetElement.innerHTML = `${sunsetHour}:${sunsetMinutes}`;
 
   dateToday();
   timeNow();
