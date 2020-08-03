@@ -214,15 +214,14 @@ function timeNow() {
   let fullTime = document.querySelector("#current-time");
   let updateTime = document.querySelector("#update-time");
 
-  if (currentMinutes > 10) {
-    let currentMinutesNew = `${currentMinutes}`;
-    fullTime.innerHTML = `${currentHour}:${currentMinutesNew}`;
-    updateTime.innerHTML = `${currentHour}:${currentMinutesNew}`;
-  } else {
-    let currentMinutesNew = `0${currentMinutes}`;
-    fullTime.innerHTML = `${currentHour}:${currentMinutesNew}`;
-    updateTime.innerHTML = `${currentHour}:${currentMinutesNew}`;
+  if (currentMinutes < 10) {
+    currentMinutes = `0${currentMinutes}`;
   }
+  if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
+  }
+  fullTime.innerHTML = `${currentHour}:${currentMinutes}`;
+  updateTime.innerHTML = `${currentHour}:${currentMinutes}`;
 }
 
 timeNow();
