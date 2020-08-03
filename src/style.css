@@ -6,6 +6,10 @@ body {
   color: #212529;
 }
 
+#main-icon {
+  padding-right: 10px;
+}
+
 a:hover {
   text-decoration: none;
 }

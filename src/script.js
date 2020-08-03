@@ -79,6 +79,9 @@ function displayWeather(response) {
 
   dateToday();
   timeNow();
+
+  let mainIconElement = document.getElementById("main-icon");
+  mainIconElement.classList = `wi wi-owm-${response.data.weather[0].id}`;
 }
 
 function displayLocationWeather(response) {
@@ -137,6 +140,9 @@ function displayLocationWeather(response) {
 
   dateToday();
   timeNow();
+
+  let mainIconElement = document.getElementById("main-icon");
+  mainIconElement.classList = `wi wi-owm-${response.data.weather[0].id}`;
 }
 
 let citySubmit = document.querySelector("#search-form");
