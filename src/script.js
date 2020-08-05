@@ -60,12 +60,52 @@ function displayForecast(response) {
   }
 }
 
+function displayLocationForecast(response) {
+  console.log(response.data);
+  let forecastElements = document.querySelector("#forecast-elements");
+  forecastElements.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElements.innerHTML += `
+<div class="col-sm mx-1">
+            <div class="card">
+              <div class="card-body px-1 py-2">
+                <p class="card-text">
+                  ${formatDay(forecast.dt)} <br />
+                  ${formatTimestamp(forecast.dt)}
+                </p>
+                <p class="weatherIcon"><i class="wi wi-owm-${
+                  forecast.weather[0].id
+                }"></i></p>
+                <p class="card-text">${
+                  forecast.weather[0].description
+                } <br />${Math.round(forecast.main.temp_max)}°C/${Math.round(
+      forecast.main.temp_min
+    )}°C</p>
+              </div>
+            </div>
+          </div>
+`;
+  }
+}
+
 function callForecastApi() {
   let apiKey = "0077954dacc8f6e7c507909431913e99";
   let unit = "metric";
   let cityInput = document.querySelector("#city-input");
   let locationApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput.value}&appid=${apiKey}&units=${unit}`;
   axios.get(locationApiUrl).then(displayForecast);
+}
+function callLocationForecastApi(position) {
+  let longitude = position.coords.longitude;
+  let latitude = position.coords.latitude;
+  let apiKey = "0077954dacc8f6e7c507909431913e99";
+  let unit = "metric";
+
+  let locationApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
+  axios.get(locationApiUrl).then(displayLocationForecast);
 }
 
 function callApi(event) {
@@ -93,6 +133,7 @@ function callLocationApi(position) {
 function activateNavigator(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(callLocationApi);
+  navigator.geolocation.getCurrentPosition(callLocationForecastApi);
 }
 
 function displayWeather(response) {
@@ -161,6 +202,10 @@ function displayWeather(response) {
 }
 
 function displayLocationWeather(response) {
+  let locationNameElement = document.querySelector("#current-city");
+  let locationNameText = response.data.name;
+  locationNameElement.innerHTML = locationNameText;
+
   let currentTemperature = Math.round(response.data.main.temp);
   let tempNow = document.querySelector("#temp-now");
   tempNow.innerHTML = currentTemperature;
@@ -185,10 +230,6 @@ function displayLocationWeather(response) {
   realFeelElement.innerHTML = realFeelValue;
   windSpeedElement.innerHTML = windSpeedValue;
   humidityElement.innerHTML = humidityValue;
-
-  let locationNameElement = document.querySelector("#current-city");
-  let locationNameText = response.data.name;
-  locationNameElement.innerHTML = locationNameText;
 
   let cloudinessElement = document.querySelector("#cloudiness");
   let cloudinessValue = response.data.clouds.all;
