@@ -1,3 +1,73 @@
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+
+  let weekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return `${weekdays[day]}`;
+}
+
+function formatTimestamp(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let hour = date.getHours();
+  let minutes = date.getMinutes();
+
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+
+  return `${hour}:${minutes}`;
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+  let forecastElements = document.querySelector("#forecast-elements");
+  forecastElements.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElements.innerHTML += `
+<div class="col-sm mx-1">
+            <div class="card">
+              <div class="card-body px-1 py-2">
+                <p class="card-text">
+                  ${formatDay(forecast.dt)} <br />
+                  ${formatTimestamp(forecast.dt)}
+                </p>
+                <p class="weatherIcon"><i class="wi wi-owm-${
+                  forecast.weather[0].id
+                }"></i></p>
+                <p class="card-text">${
+                  forecast.weather[0].description
+                } <br />${Math.round(forecast.main.temp_max)}°C/${Math.round(
+      forecast.main.temp_min
+    )}°C</p>
+              </div>
+            </div>
+          </div>
+`;
+  }
+}
+
+function callForecastApi() {
+  let apiKey = "0077954dacc8f6e7c507909431913e99";
+  let unit = "metric";
+  let cityInput = document.querySelector("#city-input");
+  let locationApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput.value}&appid=${apiKey}&units=${unit}`;
+  axios.get(locationApiUrl).then(displayForecast);
+}
+
 function callApi(event) {
   event.preventDefault();
   let apiKey = "0077954dacc8f6e7c507909431913e99";
@@ -5,6 +75,8 @@ function callApi(event) {
   let cityInput = document.querySelector("#city-input");
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&units=${unit}&appid=${apiKey}`;
   axios.get(apiUrl).then(displayWeather);
+
+  callForecastApi();
 }
 
 function callLocationApi(position) {
