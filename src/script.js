@@ -30,7 +30,6 @@ function formatTimestamp(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
   let forecastElements = document.querySelector("#forecast-elements");
   forecastElements.innerHTML = null;
   let forecast = null;
@@ -61,7 +60,6 @@ function displayForecast(response) {
 }
 
 function displayLocationForecast(response) {
-  console.log(response.data);
   let forecastElements = document.querySelector("#forecast-elements");
   forecastElements.innerHTML = null;
   let forecast = null;
