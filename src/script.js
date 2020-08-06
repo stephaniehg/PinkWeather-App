@@ -34,7 +34,7 @@ function displayForecast(response) {
   forecastElements.innerHTML = null;
   let forecast = null;
 
-  for (let index = 0; index < 6; index++) {
+  for (let index = 0; index < 5; index++) {
     forecast = response.data.list[index];
     forecastElements.innerHTML += `
 <div class="col-sm mx-1">
@@ -47,11 +47,12 @@ function displayForecast(response) {
                 <p class="weatherIcon"><i class="wi wi-owm-${
                   forecast.weather[0].id
                 }"></i></p>
-                <p class="card-text">${
+                <p class="card-text forecastDescription">${
                   forecast.weather[0].description
-                } <br />${Math.round(forecast.main.temp_max)}°C/${Math.round(
-      forecast.main.temp_min
-    )}°C</p>
+                }</p>
+                <p class="card-text">${Math.round(
+                  forecast.main.temp_max
+                )}°C/${Math.round(forecast.main.temp_min)}°C</p>
               </div>
             </div>
           </div>
