@@ -89,6 +89,7 @@ function callApi(event) {
   axios.get(apiUrl).then(displayWeather);
 
   callForecastApi();
+  resetTempScale();
 }
 
 function callLocationApi(position) {
@@ -100,6 +101,7 @@ function callLocationApi(position) {
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(displayWeather);
+  resetTempScale();
 }
 
 function activateNavigator(event) {
@@ -246,6 +248,24 @@ function timeNow() {
 
 timeNow();
 
+function resetTempScale() {
+  let alternativeScale = document.querySelector("#alternative-scale");
+  let currentScale = document.querySelector("#current-scale");
+  alternativeScale.innerHTML = "°F";
+  currentScale.innerHTML = "°C";
+
+  let scaleElements = document.querySelectorAll(".scale");
+  let tempScales = null;
+
+  for (let index = 0; index < 13; index++) {
+    tempScales = scaleElements[index];
+    tempScales.innerHTML = "°C";
+  }
+
+  let speedScaleElement = document.querySelector(".speedScale");
+  speedScaleElement.innerHTML = "km/h";
+}
+
 function changeTempScale(event) {
   event.preventDefault();
   let alternativeScale = document.querySelector("#alternative-scale");
@@ -322,6 +342,18 @@ function changeTempScale(event) {
         ((tempMinFcValues - 32) * 5) / 9
       );
     }
+  }
+
+  let speedScaleElement = document.querySelector(".speedScale");
+  let windSpeedElement = document.querySelector("#wind-speed");
+  let windSpeedValue = Number(windSpeedElement.innerHTML);
+
+  if (scaleCheck === "°F") {
+    speedScaleElement.innerHTML = "mph";
+    windSpeedElement.innerHTML = Math.round(windSpeedValue / 1.609344);
+  } else {
+    speedScaleElement.innerHTML = "km/h";
+    windSpeedElement.innerHTML = Math.round(windSpeedValue * 1.609344);
   }
 }
 
