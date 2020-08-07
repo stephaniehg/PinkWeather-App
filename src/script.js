@@ -50,9 +50,11 @@ function displayForecast(response) {
                 <p class="card-text forecastDescription">${
                   forecast.weather[0].description
                 }</p>
-                <p class="card-text">${Math.round(
+                <p class="card-text"><span class="tempMaxFc">${Math.round(
                   forecast.main.temp_max
-                )}°C/${Math.round(forecast.main.temp_min)}°C</p>
+                )}</span><span class="scale">°C</span>/<span class="tempMinFc">${Math.round(
+      forecast.main.temp_min
+    )}</span><span class="scale">°C</span></p>
               </div>
             </div>
           </div>
@@ -252,14 +254,74 @@ function changeTempScale(event) {
   let currentTemperature = tempNow.innerHTML;
   currentTemperature = Number(currentTemperature);
   let scaleCheck = alternativeScale.innerHTML;
+
+  let tempMinNow = document.querySelector("#temp-min");
+  let tempMaxNow = document.querySelector("#temp-max");
+  let tempMinNowValue = Number(tempMinNow.innerHTML);
+  let tempMaxNowValue = Number(tempMaxNow.innerHTML);
+
+  let realFeelElement = document.querySelector("#real-feel");
+  let realFeelValue = Number(realFeelElement.innerHTML);
+
   if (scaleCheck === "°F") {
     alternativeScale.innerHTML = "°C";
     currentScale.innerHTML = "°F";
     tempNow.innerHTML = Math.round((currentTemperature * 9) / 5 + 32);
+    tempMinNow.innerHTML = Math.round((tempMinNowValue * 9) / 5 + 32);
+    tempMaxNow.innerHTML = Math.round((tempMaxNowValue * 9) / 5 + 32);
+    realFeelElement.innerHTML = Math.round((realFeelValue * 9) / 5 + 32);
   } else {
     alternativeScale.innerHTML = "°F";
     currentScale.innerHTML = "°C";
     tempNow.innerHTML = Math.round(((currentTemperature - 32) * 5) / 9);
+    tempMinNow.innerHTML = Math.round(((tempMinNowValue - 32) * 5) / 9);
+    tempMaxNow.innerHTML = Math.round(((tempMaxNowValue - 32) * 5) / 9);
+    realFeelElement.innerHTML = Math.round(((realFeelValue - 32) * 5) / 9);
+  }
+
+  let scaleElements = document.querySelectorAll(".scale");
+  let tempScales = null;
+  console.log(scaleElements);
+
+  for (let index = 0; index < 13; index++) {
+    tempScales = scaleElements[index];
+    if (scaleCheck === "°F") {
+      tempScales.innerHTML = "°F";
+    } else {
+      tempScales.innerHTML = "°C";
+    }
+  }
+
+  let tempMaxFcElements = document.querySelectorAll(".tempMaxFc");
+  let tempMaxFcValues = null;
+
+  for (let index = 0; index < 5; index++) {
+    tempMaxFcValues = Number(tempMaxFcElements[index].innerHTML);
+    if (scaleCheck === "°F") {
+      tempMaxFcElements[index].innerHTML = Math.round(
+        (tempMaxFcValues * 9) / 5 + 32
+      );
+    } else {
+      tempMaxFcElements[index].innerHTML = Math.round(
+        ((tempMaxFcValues - 32) * 5) / 9
+      );
+    }
+  }
+
+  let tempMinFcElements = document.querySelectorAll(".tempMinFc");
+  let tempMinFcValues = null;
+
+  for (let index = 0; index < 5; index++) {
+    tempMinFcValues = Number(tempMinFcElements[index].innerHTML);
+    if (scaleCheck === "°F") {
+      tempMinFcElements[index].innerHTML = Math.round(
+        (tempMinFcValues * 9) / 5 + 32
+      );
+    } else {
+      tempMinFcElements[index].innerHTML = Math.round(
+        ((tempMinFcValues - 32) * 5) / 9
+      );
+    }
   }
 }
 
