@@ -301,7 +301,6 @@ function changeTempScale(event) {
 
   let scaleElements = document.querySelectorAll(".scale");
   let tempScales = null;
-  console.log(scaleElements);
 
   for (let index = 0; index < 13; index++) {
     tempScales = scaleElements[index];
