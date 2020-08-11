@@ -1,3 +1,20 @@
+function resetTempScale() {
+  let alternativeScale = document.querySelector("#alternative-scale");
+  let currentScale = document.querySelector("#current-scale");
+  alternativeScale.innerHTML = "°F";
+  currentScale.innerHTML = "°C";
+
+  let scaleElements = document.querySelectorAll(".scale");
+  let tempScales = null;
+
+  scaleElements.forEach((tempScales) => {
+    tempScales.innerHTML = "°C";
+  });
+
+  let speedScaleElement = document.querySelector(".speedScale");
+  speedScaleElement.innerHTML = "km/h";
+}
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -247,24 +264,6 @@ function timeNow() {
 }
 
 timeNow();
-
-function resetTempScale() {
-  let alternativeScale = document.querySelector("#alternative-scale");
-  let currentScale = document.querySelector("#current-scale");
-  alternativeScale.innerHTML = "°F";
-  currentScale.innerHTML = "°C";
-
-  let scaleElements = document.querySelectorAll(".scale");
-  let tempScales = null;
-
-  for (let index = 0; index < 13; index++) {
-    tempScales = scaleElements[index];
-    tempScales.innerHTML = "°C";
-  }
-
-  let speedScaleElement = document.querySelector(".speedScale");
-  speedScaleElement.innerHTML = "km/h";
-}
 
 function changeTempScale(event) {
   event.preventDefault();
